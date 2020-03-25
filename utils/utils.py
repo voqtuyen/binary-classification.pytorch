@@ -53,3 +53,20 @@ def build_writer(cfg):
     """
     writer = SummaryWriter(log_dir=cfg['log_dir'])
     return writer
+
+
+def get_device(cfg):
+    """ Get device based on config
+    Args:
+        - cfg (dict): dict of configuration
+    Returns:
+        - device
+    """
+    device = None
+    if cfg['device'] == 'cpu':
+        device = torch.device('cpu')
+    elif cfg['device'] == 'cuda':
+        device = torch.device('cuda')
+    else:
+        raise NotImplementedError
+    return device

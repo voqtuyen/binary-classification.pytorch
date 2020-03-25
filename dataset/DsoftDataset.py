@@ -10,7 +10,7 @@ import pandas as pd
 class DsoftDataset(Dataset):
     def __init__(self, csv_file, root_dir, transform=None):
         super().__init__()
-        self.data = pd.read_csv(csv_file)
+        self.data = pd.read_csv(os.path.join(root_dir, csv_file))
         self.root_dir = root_dir
         self.transform = transform
 
